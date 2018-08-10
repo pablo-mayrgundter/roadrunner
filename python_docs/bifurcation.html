@@ -1,92 +1,203 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bifurcation Analysis &mdash; libRoadRunner 1.5.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/libroadrunner_logo_tan.ico"/>
+  
+  
+  
+
+  
+
+  
+  
     
-    <title>Bifurcation Analysis &#8212; libRoadRunner 1.4.25 documentation</title>
-    
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.4.25',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Accessing the SBML Model Variables" href="accessing_model.html" />
     <link rel="prev" title="Stability Analysis" href="stability.html" /> 
-  </head>
-  <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="accessing_model.html" title="Accessing the SBML Model Variables"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="stability.html" title="Stability Analysis"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">libRoadRunner 1.4.25 documentation</a> &#187;</li> 
-      </ul>
-    </div>  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> libRoadRunner
+          
+
+          
+            
+            <img src="_static/libroadrunner_logo_tan_200.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read_write_functions.html">SBML Read/Write Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selecting_values.html">Selecting Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="steady_state.html">Steady State Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stochastic.html">Stochastic Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stoichiometric.html">Stoichiometric Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metabolic.html">Metabolic Control Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stability.html">Stability Analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bifurcation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accessing_model.html">Accessing the SBML Model Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Simulation and Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utility_functions.html">Utility Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">RoadRunner API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libRoadRunner</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Bifurcation Analysis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/bifurcation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="bifurcation-analysis">
 <h1>Bifurcation Analysis<a class="headerlink" href="#bifurcation-analysis" title="Permalink to this headline">¶</a></h1>
 <p>Bifurcation analysis is useful for understanding model with multiple steady states. RoadRunner supports bifurcation analysis through <a class="reference external" href="https://github.com/sys-bio/rrplugins">rrplugins</a> package, which is an extension package to RoadRunner and provides an interface to AUTO2000.</p>
 <p>Start using rrplugins package by importing the library and creating a Plugin instance.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rrplugins</span> <span class="k">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rrplugins</span> <span class="k">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span> <span class="o">=</span> <span class="n">Plugin</span><span class="p">(</span><span class="s2">&quot;tel_auto2000&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The Plugin instance will have various properties you can set. For example, to load a model:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sbmlModel</span> <span class="o">=</span> <span class="s2">&quot;path/to/SBML/model/&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sbmlModel</span> <span class="o">=</span> <span class="s2">&quot;path/to/SBML/model/&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;SBML&quot;</span><span class="p">,</span> <span class="n">readAllText</span><span class="p">(</span><span class="n">sbmlModel</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>To change number maximum number of steps:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;NMX&quot;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;NMX&quot;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To change the scan direction:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;ScanDirection&quot;</span><span class="p">,</span> <span class="s2">&quot;Positive&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;ScanDirection&quot;</span><span class="p">,</span> <span class="s2">&quot;Positive&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To change principal continuation parameter as well as its lower and upper bounds:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;PrincipalContinuationParameter&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;PrincipalContinuationParameter&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;PCPLowerBound&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;PCPUpperBound&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Execute the plugin by running:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">auto</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>rrplugins package comes with several plotting functions as well, which is espeicially useful for plotting bifucation diagrams with ease. After executing the plugin, results will be stored in <code class="docutils literal"><span class="pre">BifurcationPoints</span></code>, <code class="docutils literal"><span class="pre">BifurcationLabels</span></code>, and <code class="docutils literal"><span class="pre">BifurcationData</span></code>. You can use these information to plot a bifurcation diagram.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span>     <span class="o">=</span> <span class="n">auto</span><span class="o">.</span><span class="n">BifurcationPoints</span>
+<p>rrplugins package comes with several plotting functions as well, which is espeicially useful for plotting bifucation diagrams with ease. After executing the plugin, results will be stored in <code class="docutils literal notranslate"><span class="pre">BifurcationPoints</span></code>, <code class="docutils literal notranslate"><span class="pre">BifurcationLabels</span></code>, and <code class="docutils literal notranslate"><span class="pre">BifurcationData</span></code>. You can use these information to plot a bifurcation diagram.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span>     <span class="o">=</span> <span class="n">auto</span><span class="o">.</span><span class="n">BifurcationPoints</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lbls</span>    <span class="o">=</span> <span class="n">auto</span><span class="o">.</span><span class="n">BifurcationLabels</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">biData</span>  <span class="o">=</span> <span class="n">auto</span><span class="o">.</span><span class="n">BifurcationData</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">biData</span><span class="o">.</span><span class="n">plotBifurcationDiagram</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">lbls</span><span class="p">)</span>
@@ -96,62 +207,68 @@
 </div>
 
 
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="accessing_model.html" class="btn btn-neutral float-right" title="Accessing the SBML Model Variables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stability.html" class="btn btn-neutral" title="Stability Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2018, Andy Somogyi, J Kyle Medley, Kiri Choi, Herbert Suaro.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/libroadrunner_logo_blue_200.png" alt="Logo"/>
-            </a></p>
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="stability.html"
-                        title="previous chapter">Stability Analysis</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="accessing_model.html"
-                        title="next chapter">Accessing the SBML Model Variables</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/bifurcation.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="accessing_model.html" title="Accessing the SBML Model Variables"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="stability.html" title="Stability Analysis"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">libRoadRunner 1.4.25 documentation</a> &#187;</li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2013-2018, Andy Somogyi, J Kyle Medley, Kiri Choi, Herbert Suaro.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
-    </div>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.5.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>
