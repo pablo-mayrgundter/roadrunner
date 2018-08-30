@@ -226,7 +226,11 @@ selects the unscaled elasticity control coefficient, <a class="reference interna
 <dd>Represents the eigenvalue of a floating species. <code class="docutils literal notranslate"><span class="pre">eigen(identifier)</span></code> is complex number whereas <code class="docutils literal notranslate"><span class="pre">eigenReal(identifier)</span></code> is the real part of eigenvalue and
 <code class="docutils literal notranslate"><span class="pre">eigenImag(identifier)</span></code> is the imaginary part of eigenvalue.</dd>
 <dt>Initial Value: <code class="docutils literal notranslate"><span class="pre">init()</span></code></dt>
-<dd>Represents the initial value of an identifier specified in the SBML document, i.e. <code class="docutils literal notranslate"><span class="pre">init(S1)</span></code>.</dd>
+<dd>Represents the initial value of an identifier (species or global parameter) specified in the SBML document, i.e. <code class="docutils literal notranslate"><span class="pre">init(S1)</span></code>.
+Setting this value does not reset the <em>current</em> value of the quantity. When <code class="xref py py-meth docutils literal notranslate"><span class="pre">resetAll()</span></code> is
+called, the current values of all quantities will be reset to the designated initial values, including any changes
+made to the initial values via this syntax. This is in contrast to <code class="xref py py-meth docutils literal notranslate"><span class="pre">resetToOrigin()</span></code>,
+which resets all current and initial values to the values specified in the SBML document.</dd>
 <dt>Stoichiometry: <code class="docutils literal notranslate"><span class="pre">stoich(ParameterId,</span> <span class="pre">ReactionId)</span></code></dt>
 <dd>Represents the stoichiometric coefficient for a given species and reaction.</dd>
 </dl>
