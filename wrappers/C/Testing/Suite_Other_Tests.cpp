@@ -40,6 +40,7 @@ string getListOfReactionsText(const string& fName);
 
 SUITE(OTHER_TESTS)
 {
+
     TEST(EMPTY_EVENT_ASSIGNMENTS)
     {
         // Event assignments in L3v2 can be empty
@@ -69,6 +70,20 @@ SUITE(OTHER_TESTS)
 
 
 
+    }
+
+    TEST(GET_RATE_OF_CHANGE)
+    {
+        string TestModelFileName = joinPath(gTestDataFolder, "basic_rate.xml");
+        CHECK(fileExists(TestModelFileName));
+
+        RoadRunner rr(TestModelFileName, NULL);
+        rr.setConservedMoietyAnalysis(true);
+        vector<string> sel;
+        sel.push_back("time");
+        sel.push_back("S2'");
+        rr.setSelections(sel);
+        rr.simulate();
     }
 
 
